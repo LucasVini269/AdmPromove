@@ -159,4 +159,58 @@ body{
 }
 /* inicio conteudo----------------------------------------------------------------------------------------------------*/
 
+/* inicio sidebar------------------------------------------------------------------------------------------------------*/
+.content .sidebar{
+    color: var(--main-color);
+    height: calc(100vh - 60px);
+    width: 60px;
+    /*width: 250px;*/
+    position: sticky;
+    top: 60px;
+    background-color: var(--main-bg-color);
+    box-shadow: 0 1px 4px 5px rgba(0, 0, 0, 0.12);
+    overflow: auto; /* barra de rolagem */
+    flex-shrink: 0; /* reduz os elementos caso diminua o espaço */
+}
+
+@media (max-width: 768px){
+    .content .sidebar{
+        width: 60px;
+        position: fixed;
+        z-index: 1;
+        width: 0;
+    }
+}
+
+.content .sidebar:hover,
+.content .sidebar:active{
+    width: 250px;
+}
+
+.sidebar .sidebar-nav{
+    text-decoration: none;
+    display: flex; /* apresenta tudo em uma unica linha */
+    align-items: center;
+    padding: 15px 0;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s background ease;
+    font-size: 16px;
+}
+
+.sidebar a{
+    color: var(--main-color);
+}
+
+.sidebar a:hover{
+    background-color: var(--second-bg-color);
+    color: var(--active-color);
+}
+
+.sidebar .sidebar-nav.active{
+    background-color: var(--second-bg-color);
+    color: var(--active-color);
+}
+/* fim sidebar------------------------------------------------------------------------------------------------------*/
+
 /* fim conteudo----------------------------------------------------------------------------------------------------*/
