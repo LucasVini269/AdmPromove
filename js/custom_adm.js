@@ -27,3 +27,12 @@ function fechar(selector){
     dropdownMenu.classList.remove("active");
     }
     }
+//fim dropdown navbar
+
+//inicio sidebar bars//
+let sidebar = document.querySelector(".sidebar");
+let bars = document.querySelector(".bars");
+
+bars.addEventListener("click", () => {
+    sidebar.classList.contains("active") ? sidebar.classList.remove("active") : sidebar.classList.add("active");
+});
