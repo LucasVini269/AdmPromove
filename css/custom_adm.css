@@ -14,6 +14,7 @@
     --bg-color: #ecedf0;
     --second-color: #f1f1f1;
     --third-color: #9fa7bd;
+    --fourth-color: #fff;
     --main-bg-color: #192039;
     --second-bg-color: #1e2746;
     --third-bg-color: #3a7afe;
@@ -23,6 +24,7 @@
     --info-color: #5bc0de;
     --warning-color: #ed9c28;
     --danger-color: #d2322d;
+
 }
 
 body{
@@ -169,8 +171,10 @@ body{
     top: 60px;
     background-color: var(--main-bg-color);
     box-shadow: 0 1px 4px 5px rgba(0, 0, 0, 0.12);
-    overflow: auto; /* barra de rolagem */
+    overflow-y: auto; /* barra de rolagem */
+    overflow-x: hidden;
     flex-shrink: 0; /* reduz os elementos caso diminua o espaço */
+    transition: all 0.6s ease;
 }
 
 @media (max-width: 768px){
@@ -183,7 +187,7 @@ body{
 }
 
 .content .sidebar:hover,
-.content .sidebar:active{
+.content .sidebar.active{
     width: 250px;
 }
 
@@ -211,6 +215,95 @@ body{
     background-color: var(--second-bg-color);
     color: var(--active-color);
 }
+
+.sidebar .sidebar-nav.active::before{
+    content: "";
+    position: absolute; /* sobrepoe o conteudo */
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: var(--site-color);
+}
+
+.sidebar-nav .icon{
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0; /* quando 0, o elemento não encolhe se estiver outros perto, ele oculpa o espaço inteiro */
+}
 /* fim sidebar------------------------------------------------------------------------------------------------------*/
+
+.content .wrapper{
+    width: 100%;
+    padding: 10px;
+    background-color: var(--bg-color);
+}
+
+.content .row{
+    background-color: var(--fourth-color);
+    border-radius: 6px;
+    /*margin: 10px; */
+}
+
+.wrapper .row{
+    display: flex; /* tudo numa linha */
+    justify-content: space-between; /* coloca espaco entre os elementos */
+    padding: 5px;
+    flex-wrap: wrap;
+}
+/* inicio dashboard------------------------------------------------------------------------------------------------------*/
+.row .box{
+    width: 23%;
+    margin: 5px 1%;
+    height: 150px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--fourth-color);
+    border-radius: 6px;
+    overflow: hidden;
+    flex-direction: column;
+    box-shadow: 0 3px 4px 1px rgba(0, 0, 0, 0.12);
+}
+
+.row .box-first{
+    background-color: var(--primary-color);
+}
+
+.row .box-third{
+    background-color: var(--warning-color);
+}
+
+.row .box-second{
+    background-color: var(--success-color);
+}
+
+.row .box-fourth{
+    background-color: var(--danger-color);
+}
+
+.box span{
+    margin: 5px 0;
+    font-size: 17px;
+    position: relative;
+}
+
+@media (max-width: 1024px){
+    .row .box{
+        width: 48%;
+    }
+}
+
+@media (max-width: 768px){
+    .row .box{
+        width: 96%;
+    }
+}
+/* fim dashboard------------------------------------------------------------------------------------------------------*/
 
 /* fim conteudo----------------------------------------------------------------------------------------------------*/
